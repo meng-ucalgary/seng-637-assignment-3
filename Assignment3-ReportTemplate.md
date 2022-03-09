@@ -170,11 +170,11 @@ Thus, going forward, the tests made in this report will be using EclEmma.
 - Advantages
     - Can maximize coverage by designing test cases around the methods
     - Can verify previous black box tests
-    - Can ensure test are not all testing the same methods
+    - Can ensure test are not all testing the same cases/methods/paths
 - Disadvantages
     - Test cases can be biased by looking at the code
     - Test cases deigned only around coverage may not test all boundary cases.
-    - Reliance on coverage tools which offer different features
+    - Reliance on coverage tools which offer different features.
 ## Division of team work
 
 ### 3.2 Manual data flow coverage
