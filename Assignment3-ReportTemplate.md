@@ -129,8 +129,11 @@ Text…
 Text…
 
 ## A detailed report of the coverage achieved of each class and method (a screen shot from the code cover results in green and red color would suffice)
+Range coverage Before  
+![image](Report_Images/Range_Line_Coverage_Before.PNG)  
+![image](Report_Images/Range_Branch_Coverage_Before.PNG)  
+![image](Report_Images/Range_Method_Coverage_Before.PNG)  
 
-Text…
 
 ## Pros and Cons of coverage tools used and Metrics you report
 
