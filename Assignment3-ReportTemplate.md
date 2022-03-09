@@ -192,7 +192,7 @@ Each of the four testers will increase coverage of the following methods.
 
 | API method                                                 | Tester                   |
 | ---------------------------------------------------------- | ------------------------ |
-| `Range.isNaNRange()`                                       | Bhavyai Gupta            |
+| `Range.isNaNRange()`                                       | None (Already 100%)      |
 | `Range.shift(Range, double, boolean)`                      | None (Already 100%)      |
 | `Range.intersects(double, double)`                         | Michael Man Yin Lee      |
 | `Range.expandToInclude(Range, double)`                     | Drew Burritt             |
