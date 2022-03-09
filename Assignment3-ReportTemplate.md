@@ -133,7 +133,10 @@ Range coverage Before
 ![image](Report_Images/Range_Line_Coverage_Before.PNG)  
 ![image](Report_Images/Range_Branch_Coverage_Before.PNG)  
 ![image](Report_Images/Range_Method_Coverage_Before.PNG)  
-
+Data Utilities coverage Before  
+![image](Report_Images/DataUtilities_Line_Coverage_Before.PNG)  
+![image](Report_Images/DataUtilities_Branch_Coverage_Before.PNG)  
+![image](Report_Images/DataUtilities_Method_Coverage_Before.PNG) 
 
 ## Pros and Cons of coverage tools used and Metrics you report
 
