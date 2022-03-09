@@ -206,7 +206,9 @@ Each of the four testers will increase coverage of the following methods.
 
 ## Difficulties, challenges, and lessons learned
 
-Text…
+Coverage is a really good tool to analyze what is missing in the test case, but as mentioned in the disadvantages, this only test whether the test would cover all aspects of code, but does not look at the requirements itself.
+
+We believe that, both requirements base and coverage base tests are equally important in software testing.
 
 ## Comments and feedback
 
