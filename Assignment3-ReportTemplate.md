@@ -184,7 +184,8 @@ Thus, going forward, the tests made in this report will be using EclEmma.
 ## Division of team work
 
 ### 3.2 Manual data flow coverage
-This section was worked on togeater
+We first split the work of producing the flow graph and analyzing the DU pairs into two parts, one group (Drew and Bhavyai) is looking at the intersect method and the other group (Michael and Oke) is doing the calculateColumn total method. After the two groups finish the work, the two groups will then review each others work to see if there are any issues.
+
 ### 3.3 TEST SUITE DEVELOPMENT
 
 Each of the four testers will increase coverage of the following methods.
