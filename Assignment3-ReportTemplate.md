@@ -160,13 +160,21 @@ Thus, going forward, the tests made in this report will be using EclEmma.
 ## A comparison on the advantages and disadvantages of requirements-based test generation and coverage-based test generation.
 ### Requirements-based test generation
 - Advantages
-    - More representative of actual use cases as a user would read Javadoc
+    - More representative of actual use cases for a user would read Javadoc
     - Test cases are not biased by looking at the code
 - Disadvantages
     - No way to verify test coverage 
     - Planning must be more thorough to ensure all cases are tested
     - Test cases may test the same paths multiple times as testers are unsure of the code
-
+### Coverage-based test generation
+- Advantages
+    - Can maximize coverage by designing test cases around the methods
+    - Can verify previous black box tests
+    - Can ensure test are not all testing the same methods
+- Disadvantages
+    - Test cases can be biased by looking at the code
+    - Test cases deigned only around coverage may not test all boundary cases.
+    - Reliance on coverage tools which offer different features
 ## Division of team work
 
 ### 3.2 Manual data flow coverage
