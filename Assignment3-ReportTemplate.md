@@ -161,7 +161,25 @@ Text…
 
 ## Division of team work
 
-Text…
+### 3.2 Manual data flow coverage
+This section was worked on togeater
+### 3.3 TEST SUITE DEVELOPMENT
+
+Each of the four testers will increase coverage of the following methods.
+
+| API method                                                 | Tester                   |
+| ---------------------------------------------------------- | ------------------------ |
+| `Range.isNaNRange()`                                       | Bhavyai Gupta            |
+| `Range.shift(Range, double, boolean)`                      | None (Already 100%)      |
+| `Range.intersects(double, double)`                         | Michael Man Yin Lee      |
+| `Range.expandToInclude(Range, double)`                     | Drew Burritt             |
+| `Range.combineIgnoringNaN(Range, Range)`                   | Bhavyai Gupta            |
+| `DataUtilities.calculateRowTotal(Values2D, int)`           | Michael Man Yin Lee      |
+| `DataUtilities.calculateRowTotal(Values2D, int, int[])`    | Bhavyai Gupta            |
+| `DataUtilities.calculateColumnTotal(Values2D, int)`        | Michael Man Yin Lee      |
+| `DataUtilities.calculateColumnTotal(Values2D, int, int[])` | Drew Burritt             |
+| `DataUtilities.getCumulativePercentages(KeyedValues)`      | None (Already 100%)      |
+
 
 ## Difficulties, challenges, and lessons learned
 
