@@ -61,7 +61,9 @@ Link to the video demonstration of testing is _TBA_.
 | `intersectsWithInputBLBAndMAX` | [1, 2, 3, 4]    | (1, 2), (1, 3)         | (2, 3), (3, 4)         | 20%                 |
 | `intersectsWithInput0And0`     | [1, 2, 5, 6, 4] | (1, 2), (1, 5), (1, 6) | (2, 5), (5, 6), (6, 4) | 40%                 |
 | `intersectsWithInputNaNAnd1`   | [1, 2, 5, 7]    | (1, 2), (1, 5)         | (2, 5), (5, 7)         | 20%                 |
-
+Total:
+PUc: (2, 3), (3, 7), (3, 4), (2, 5), (5, 6), (6, 4) (5, 7)       All-uses coverage 70%     
+            
 ### 2. `DataUtilities.calculateColumnTotal(Values2D data, int column, int[] validRows)`
 
 ![DFG_CalculateColumnTotal.png](Report_Images/DFG_CalculateColumnTotal.jpg)
