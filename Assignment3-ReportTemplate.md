@@ -21,9 +21,71 @@ Text…
 
 Link to the video demonstration of testing is _TBA_.
 
-## Manual data-flow coverage calculations for X and Y methods
+## Manual data flow coverage
 
-Text…
+### 1. `Range.intersects(double b0, double b1)`
+
+![DFG_Intersects.png](drafts/DFG_Intersects.png)
+
+#### Defs, uses, and du-pairs
+
+|               |                               |
+| ------------- | ----------------------------- |
+| **defs**:     | def(1) = {b0, b1}             |
+| **uses**:     | use(2) = {b0, this.lower}     |
+|               | use(3) = {b1, this.lower}     |
+|               | use(5) = {b0, this.upper}     |
+|               | use(6) = {b0, b1}             |
+| **du-pairs**: | for b0 (1, 2), (1, 5), (1, 6) |
+|               | for b1 (1, 3), (1, 6)         |
+
+#### DU-pair coverage calculation per test case
+
+| Variable | Def at node (n) | dcu(v, n) | dpu(v, n)                                        |
+| -------- | --------------- | --------- | ------------------------------------------------ |
+| b0       | 1               | {}        | {(2, 3), (2, 5), (5, 6), (5, 7), (6, 4), (6, 7)} |
+| b1       | 1               | {}        | {(3, 4), (3, 7), (6, 4), (6, 7)}                 |
+|          | Total           | CU = 0    | PU = 10                                          |
+
+| Test case                      | DU path         | DU-pairs covered       | PUc                    | All-uses coverage % |
+| ------------------------------ | --------------- | ---------------------- | ---------------------- | ------------------- |
+| `intersectsWithInputBLBAndLB`  | [1, 2, 3, 7]    | (1, 2), (1, 3)         | (2, 3), (3, 7)         | 20%                 |
+| `intersectsWithInputBLBAndALB` | [1, 2, 3, 4]    | (1, 2), (1, 3)         | (2, 3), (3, 4)         | 20%                 |
+| `intersectsWithInputBLBAndAUB` | [1, 2, 3, 4]    | (1, 2), (1, 3)         | (2, 3), (3, 4)         | 20%                 |
+| `intersectsWithInputLBAndALB`  | [1, 2, 3, 4]    | (1, 2), (1, 3)         | (2, 3), (3, 4)         | 20%                 |
+| `intersectsWithInputLBAndUB`   | [1, 2, 3, 4]    | (1, 2), (1, 3)         | (2, 3), (3, 4)         | 20%                 |
+| `intersectsWithInputNOMAndNOM` | [1, 2, 5, 6, 4] | (1, 2), (1, 5), (1, 6) | (2, 5), (5, 6), (6, 4) | 40%                 |
+| `intersectsWithInputBUBAndUB`  | [1, 2, 5, 6, 4] | (1, 2), (1, 5), (1, 6) | (2, 5), (5, 6), (6, 4) | 40%                 |
+| `intersectsWithInputUBAndAUB`  | [1, 2, 5, 7]    | (1, 2), (1, 5)         | (2, 5), (5, 7)         | 20%                 |
+| `intersectsWithInputMINAndAUB` | [1, 2, 5, 6, 4] | (1, 2), (1, 5), (1, 6) | (2, 5), (5, 6), (6, 4) | 40%                 |
+| `intersectsWithInputBLBAndMAX` | [1, 2, 3, 4]    | (1, 2), (1, 3)         | (2, 3), (3, 4)         | 20%                 |
+| `intersectsWithInput0And0`     | [1, 2, 5, 6, 4] | (1, 2), (1, 5), (1, 6) | (2, 5), (5, 6), (6, 4) | 40%                 |
+| `intersectsWithInputNaNAnd1`   | [1, 2, 5, 7]    | (1, 2), (1, 5)         | (2, 5), (5, 7)         | 20%                 |
+
+### 2. `DataUtilities.calculateColumnTotal(Values2D data, int column, int[] validRows)`
+
+![DFG_CalculateColumnTotal.png](drafts/DFG_CalculateColumnTotal.png)
+
+#### Defs, uses, and du-pairs
+
+|               |     |
+| ------------- | --- |
+| **defs**:     |     |
+| **uses**:     |     |
+| **du-pairs**: |     |
+
+#### DU-pair coverage in test cases
+
+| Test case                                        | DU-pair coverage |
+| ------------------------------------------------ | ---------------- |
+| `calculateColumnTotalAllRowsFirstColumn`         |                  |
+| `calculateColumnTotalAllRowsMiddleColumn`        |                  |
+| `calculateColumnTotalAllRowsLastColumn`          |                  |
+| `calculateColumnTotalWithMaxValueAndFirstColumn` |                  |
+| `calculateColumnTotalWithMinValueAndFirstColumn` |                  |
+| `calculateColumnTotalWithMaxValueColumn`         |                  |
+| `calculateColumnTotalWithMinValueColumn`         |                  |
+| `calculateColumnTotalWithSumOf0AndFirstColumn`   |                  |
 
 ## A detailed description of the testing strategy for the new unit test
 
