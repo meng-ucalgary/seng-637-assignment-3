@@ -179,7 +179,7 @@ Thus, going forward, the tests made in this report will be using EclEmma.
     - Can ensure test are not all testing the same cases/methods/paths
 - Disadvantages
     - Test cases can be biased by looking at the code
-    - Test cases deigned only around coverage may not test all boundary cases.
+    - Test cases deigned only around coverage may not test all boundary cases, ex: incorrect code may pass with normal values but fail at boudaries even with 100% coverage
     - Reliance on coverage tools which offer different features.
 ## Division of team work
 
