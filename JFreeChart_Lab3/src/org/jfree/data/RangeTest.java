@@ -143,6 +143,11 @@ public class RangeTest {
 
     // test cases for intersects(double, double) ------------------------------
     @Test
+    public void intersectsWithReverse() {
+        assertTrue(this.exampleRange.intersects(-6, -9));
+    }
+	
+	@Test
     public void intersectsWithInputBLBAndLB() {
         assertFalse(this.exampleRange.intersects(-10.00001, -10));
     }
