@@ -1,0 +1,27 @@
+public boolean intersects(double b0, double b1) {
+  if (b0 <= this.lower) {
+    if(b1 > this.lower) {
+      return true;
+    }
+
+    else {
+      return false;
+    }
+  }
+
+  else {
+    if(b0 < this.upper) {
+      if(b1 >= b0) {
+        return true;
+      }
+
+      else {
+        return false;
+      }
+    }
+
+    else {
+      return false;
+    }
+  }
+}
