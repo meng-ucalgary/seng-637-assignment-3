@@ -122,7 +122,9 @@ Link to the video demonstration of testing is _TBA_.
 
 ## A detailed description of the testing strategy for the new unit test
 
-Text…
+With the testing strategy in this assignment, we will first run the coverage tool (EclEmma) on the test cases that we developed from assignment 2 and analyze the coverage first with respect to the Lines, Branches and Method metrics. Afterwards, we will then designed specific test cases to cover the lines,branches and/or methods that are not covered from our previous test cases developed in assignment 2.
+
+Lastly, coverage tool will run with these new test cases to ensure that the coverage metrics are above the expected requirements.
 
 ## A high level description of five selected test cases you have designed using coverage information, and how they have increased code coverage
 
