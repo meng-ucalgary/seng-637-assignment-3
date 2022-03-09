@@ -171,9 +171,11 @@ Text…
 
 1. This assignment has given us a great opportunity in learning how to make sure the test cases we write are complete and cover most of the source code effectively.
 
-2. EclEmma was used as the code coverage tool, which is already available Eclipse as an installed plugin.
+2. This assignment gave us a chance to review our assignment 2 work and see how well we did with black box testing
 
-3. The assignment description document [`Assignment3.md`](Assignment3.md) is very detailed and comprehensive, and it was easy to follow.
+3. EclEmma was used as the code coverage tool, which is already available Eclipse as an installed plugin.
+
+4. The assignment description document [`Assignment3.md`](Assignment3.md) is very detailed and comprehensive, and it was easy to follow.
 
 ## Contributors
 
