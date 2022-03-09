@@ -29,15 +29,15 @@ Link to the video demonstration of testing is _TBA_.
 
 #### Defs, uses, and du-pairs
 
-|               |                               |
-| ------------- | ----------------------------- |
-| **defs**:     | def(1) = {b0, b1}             |
-| **uses**:     | use(2) = {b0, this.lower}     |
-|               | use(3) = {b1, this.lower}     |
-|               | use(5) = {b0, this.upper}     |
-|               | use(6) = {b0, b1}             |
-| **du-pairs**: | for b0 (1, 2), (1, 5), (1, 6) |
-|               | for b1 (1, 3), (1, 6)         |
+|               |                                |
+| ------------- | ------------------------------ |
+| **defs**:     | def(1) = {b0, b1}              |
+| **uses**:     | use(2) = {b0, this.lower}      |
+|               | use(3) = {b1, this.lower}      |
+|               | use(5) = {b0, this.upper}      |
+|               | use(6) = {b0, b1}              |
+| **du-pairs**: | for b0: (1, 2), (1, 5), (1, 6) |
+|               | for b1: (1, 3), (1, 6)         |
 
 #### DU-pair coverage calculation per test case
 
@@ -68,11 +68,44 @@ Link to the video demonstration of testing is _TBA_.
 
 #### Defs, uses, and du-pairs
 
-|               |     |
-| ------------- | --- |
-| **defs**:     |     |
-| **uses**:     |     |
-| **du-pairs**: |     |
+|               |                                          |
+| ------------- | ---------------------------------------- |
+| **defs**:     | def(1) = {data}                          |
+|               | def(1) = {column}                        |
+|               | def(2) = {total}                         |
+|               | def(3) = {rowCount}                      |
+|               | def(4) = {r}                             |
+|               | def(7) = {n}                             |
+|               | def(9) = {total}                         |
+|               | def(10) = {r}                            |
+| **uses**:     | use(5) = {r}                             |
+|               | use(5) = {rowCount}                      |
+|               | use(6) = {total}                         |
+|               | use(8) = {n}                             |
+|               | use(9) = {n}                             |
+|               | use(9) = {total}                         |
+|               | use(10) = {r}                            |
+| **du-pairs**: | for data: (1, 3), (1, 7)                 |
+|               | for column: (1,7)                        |
+|               | for total: (2, 6), (2, 9), (9,9)         |
+|               | for rowCount: (3, 5)                     |
+|               | for r: (4, 5), (4, 7), (4, 10), (10, 10) |
+|               | for n: (7, 8), (7, 9)                    |
+
+
+#### DU-pair coverage calculation per test case
+
+| Variable | Def at node (n) | dcu(v, n) | dpu(v, n)         |
+| -------- | --------------- | --------- | ----------------- |
+| data     | 1               | {3, 7}    | {}                |
+| column   | 1               | {7}       | {}                |
+| total    | 2               | {9}       | {}                |
+| total    | 9               | {9}       | {}                |
+| rowCount | 3               | {}        | {(5, 6), (5, 7)}  |
+| r        | 4               | {7, 10}   | {(5, 6), (5, 7)}  |
+| r        | 10              | {10}      | {}                |
+| n        | 7               | {9}       | {(8, 9), (8, 10)} |
+|          | Total           | CU = 9    | PU = 6            |
 
 #### DU-pair coverage in test cases
 
