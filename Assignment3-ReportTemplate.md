@@ -25,7 +25,7 @@ Link to the video demonstration of testing is _TBA_.
 
 ### 1. `Range.intersects(double b0, double b1)`
 
-![DFG_Intersects.png](drafts/DFG_Intersects.png)
+![DFG_Intersects.png](Report_Images/DFG_Intersects.jpg)
 
 #### Defs, uses, and du-pairs
 
@@ -64,7 +64,8 @@ Link to the video demonstration of testing is _TBA_.
 
 ### 2. `DataUtilities.calculateColumnTotal(Values2D data, int column, int[] validRows)`
 
-![DFG_CalculateColumnTotal.png](drafts/DFG_CalculateColumnTotal.png)
+![DFG_CalculateColumnTotal.png](Report_Images/DFG_CalculateColumnTotal.jpg)
+
 
 #### Defs, uses, and du-pairs
 
