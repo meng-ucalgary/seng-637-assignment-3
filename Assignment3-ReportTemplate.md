@@ -72,25 +72,30 @@ Link to the video demonstration of testing is _TBA_.
 | ------------- | ---------------------------------------- |
 | **defs**:     | def(1) = {data}                          |
 |               | def(1) = {column}                        |
-|               | def(2) = {total}                         |
+|               | def(3) = {r}                             |
 |               | def(3) = {rowCount}                      |
-|               | def(4) = {r}                             |
-|               | def(7) = {n}                             |
-|               | def(9) = {total}                         |
-|               | def(10) = {r}                            |
-| **uses**:     | use(5) = {r}                             |
-|               | use(5) = {rowCount}                      |
+|               | def(3) = {total}                         |
+|               | def(5) = {n}                             |
+|               | def(6) = {total}                         |
+|               | def(7) = {r}                             |
+| **uses**:     | use(2) = {data}                          |
+|               | use(3) = {data}                          |
+|               | use(4) = {r}                             | 
+|               | use(4) = {rowCount}                      |
+|               | use(5) = {data}                          |
+|               | use(5) = {r}                             |
+|               | use(5) = {column}                        |
+|               | use(5) = {n}                             |
 |               | use(6) = {total}                         |
-|               | use(8) = {n}                             |
-|               | use(9) = {n}                             |
-|               | use(9) = {total}                         |
-|               | use(10) = {r}                            |
-| **du-pairs**: | for data: (1, 3), (1, 7)                 |
-|               | for column: (1,7)                        |
-|               | for total: (2, 6), (2, 9), (9,9)         |
-|               | for rowCount: (3, 5)                     |
-|               | for r: (4, 5), (4, 7), (4, 10), (10, 10) |
-|               | for n: (7, 8), (7, 9)                    |
+|               | use(6) = {n}                             |
+|               | use(7) = {r}                             |
+|               | use(8) = {total}                         |
+| **du-pairs**: | for data: (1, 3), (1, 7), (1, 5)         |
+|               | for column: (1, 5)                       |
+|               | for total: (3, 6), (6, 6), (3, 8)        |
+|               | for rowCount: (3, 4)                     |
+|               | for r: (3, 4), (3, 5), (3, 7), (7, 7)    |
+|               | for n: (5, 5), (5, 6)                    |
 
 
 #### DU-pair coverage calculation per test case
