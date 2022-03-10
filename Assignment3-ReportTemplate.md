@@ -219,18 +219,18 @@ We first split the work of producing the flow graph and analyzing the DU pairs i
 
 Each of the four testers will increase coverage of the following methods.
 
-| API method                                                 | Tester              |
-| ---------------------------------------------------------- | ------------------- |
-| `Range.isNaNRange()`                                       | None (Already 100%) |
-| `Range.shift(Range, double, boolean)`                      | None (Already 100%) |
-| `Range.intersects(double, double)`                         | Michael Man Yin Lee |
-| `Range.expandToInclude(Range, double)`                     | Drew Burritt        |
-| `Range.combineIgnoringNaN(Range, Range)`                   | Bhavyai Gupta       |
-| `DataUtilities.calculateRowTotal(Values2D, int)`           | Michael Man Yin Lee |
-| `DataUtilities.calculateRowTotal(Values2D, int, int[])`    | Bhavyai Gupta       |
-| `DataUtilities.calculateColumnTotal(Values2D, int)`        | Michael Man Yin Lee |
-| `DataUtilities.calculateColumnTotal(Values2D, int, int[])` | Drew Burritt        |
-| `DataUtilities.getCumulativePercentages(KeyedValues)`      | None (Already 100%) |
+| API method                                                 | Tester                                  |
+| ---------------------------------------------------------- | --------------------------------------- |
+| `Range.isNaNRange()`                                       | None (Already 100%)                     |
+| `Range.shift(Range, double, boolean)`                      | Okeoghenemarho Obuareghe (Already 100%) |
+| `Range.intersects(double, double)`                         | Michael Man Yin Lee                     |
+| `Range.expandToInclude(Range, double)`                     | Drew Burritt                            |
+| `Range.combineIgnoringNaN(Range, Range)`                   | Bhavyai Gupta                           |
+| `DataUtilities.calculateRowTotal(Values2D, int)`           | Michael Man Yin Lee                     |
+| `DataUtilities.calculateRowTotal(Values2D, int, int[])`    | Bhavyai Gupta                           |
+| `DataUtilities.calculateColumnTotal(Values2D, int)`        | Michael Man Yin Lee                     |
+| `DataUtilities.calculateColumnTotal(Values2D, int, int[])` | Drew Burritt                            |
+| `DataUtilities.getCumulativePercentages(KeyedValues)`      | Okeoghenemarho Obuareghe (Already 100%) |
 
 ## Difficulties, challenges, and lessons learned
 
