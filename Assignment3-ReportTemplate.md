@@ -138,7 +138,7 @@ Lastly, coverage tool will run with these new test cases to ensure that the cove
 
 ## A high level description of five selected test cases you have designed using coverage information, and how they have increased code coverage
 
-###Improving Coverage for intersects:
+### Improving Coverage for intersects:
 
 Using EclEmma, the coverage for instructions, branches, lines, and methods is:
 Instructions: 100%
@@ -154,6 +154,37 @@ return (b0 < this.upper && b1 >= b0);
 
 We have found that the branch that we did not cover is when b0>b1.
 To improve on the coverage, we have added a test case where we called the intersect method with the values -6, -9 respectively so that b0 (-6) is greater than b1 (-9).
+
+With the addition of this test code, all metrics have coverage of 100%:
+Instructions: 100%
+Branches: 100%
+Lines: 100%
+Methods: 100%
+Complexity: 80%
+
+### Improving Coverage for Range expandToInclude(Range range, double value):
+
+Using EclEmma, the coverage for instructions, branches, lines, and methods is:
+Instructions: 82.4%
+Branches: 83.3%
+Lines: 85.7%
+Methods: 100%
+Complexity: 75%
+
+The minimum of 70% branch coverage was already reached, however 90% line coverage was not.
+
+When we analyze our code using branch coverage with EclEmma, we found that one the one branch and line not covered is the following:
+``` 
+if (range == null) {
+  return new Range(value, value);
+} 
+```
+
+The case not covered was when the input range is null.
+To improve on the coverage, we have added a test case where the expandToInclude method was called as follows:
+```  
+Range.expandToInclude(null, 10)); 
+```
 
 With the addition of this test code, all metrics have coverage of 100%:
 Instructions: 100%
