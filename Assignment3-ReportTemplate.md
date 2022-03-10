@@ -184,7 +184,7 @@ Upon researching this issue on stackoverflow, it seems that only Eclipse Kepler 
 We have also attempted to install Eclipse Kepler on another system to test CodeCover, but unfortunately we have multiple issues running the jfreechart code in that version of Eclipse.
 
 JaCoco has basically the same featureset as EclEmma, there are no differences and thus EclEmma is used.
-As for Clover, we have not been able to obtain the 30-day evaluation key successfully from my.atlassian.com. However, given that it is a paid tool, we believe that EclEmma is still a better solution as it is more user-friendly to install and does not require a key while providing similar functionality.
+As for Clover, when it transitioned to opensource by Atlassian sinceh 2017, it seems like support and updates were dropped and requires users to compile it themselves in order to have it run on their ide. We had problems in compiling it as we get errors when trying to Clover to work for our test cases. 
 Coverlipse (http://coverlipse.sourceforge.net/) and Cobertura (http://cobertura.github.io/cobertura/) had not been tested.
 Thus, going forward, the tests made in this report will be using EclEmma.
 
