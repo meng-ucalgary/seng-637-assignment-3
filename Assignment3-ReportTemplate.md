@@ -250,6 +250,8 @@ We believe that, both requirements base and coverage base tests are equally impo
 
 4. The assignment description document [`Assignment3.md`](Assignment3.md) is very detailed and comprehensive, and it was easy to follow.
 
+5. The Teacher Assistant has provided us very detailed and prompt feedback in clarifying any questions that we had on the assignment. For example, for the scope for section 3.3 ("Test Suite Development"), he helped us clarify that we only need to create tests to cover the required coverage metrics on the methods that we have done from assignment 2 instead of all of the methods within the Range and DataUtilities class 
+
 ## Contributors
 
 We are group 5, and below are the team members
