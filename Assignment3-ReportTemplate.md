@@ -119,16 +119,23 @@ PUc: (2, 3), (3, 7), (3, 4), (2, 5), (5, 6), (6, 4) (5, 7)
 
 #### DU-pair coverage in test cases
 
-| Test case                                        | DU-pair coverage |
-| ------------------------------------------------ | ---------------- |
-| `calculateColumnTotalAllRowsFirstColumn`         |                  |
-| `calculateColumnTotalAllRowsMiddleColumn`        |                  |
-| `calculateColumnTotalAllRowsLastColumn`          |                  |
-| `calculateColumnTotalWithMaxValueAndFirstColumn` |                  |
-| `calculateColumnTotalWithMinValueAndFirstColumn` |                  |
-| `calculateColumnTotalWithMaxValueColumn`         |                  |
-| `calculateColumnTotalWithMinValueColumn`         |                  |
-| `calculateColumnTotalWithSumOf0AndFirstColumn`   |                  |
+| Test case                                        | DU-path                   | DU-pairs covered             | PUc         | coverage % |
+| ------------------------------------------------ | ------------------------- | ---------------------------  | ----------- | ---------- |
+| `calculateColumnTotalAllRowsFirstColumn`         | 1, 2, 3, 4, 5, 6, 7, 4, 8 | (1,2) (1,3) (3,4) (1,5) (3,5)| (4,5) (5,6) |            |
+|                                                  |                           | (5,5) (6,6) (5,6) (7,7) (6,8)| (4,8)       |            || `calculateColumnTotalAllRowsMiddleColumn`        | 1, 2, 3, 4, 5, 6, 7, 4, 8 | (1,2) (1,3) (3,4) (1,5) (3,5)| (4,5) (5,6) |            |
+|                                                  |                           | (5,5) (6,6) (5,6) (7,7) (6,8)| (4,8)       |            |
+| `calculateColumnTotalAllRowsLastColumn`          | 1, 2, 3, 4, 5, 6, 7, 4, 8 | (1,2) (1,3) (3,4) (1,5) (3,5)| (4,5) (5,6) |            |
+|                                                  |                           | (5,5) (6,6) (5,6) (7,7) (6,8)| (4,8)       |            |
+| `calculateColumnTotalWithMaxValueAndFirstColumn` | 1, 2, 3, 4, 5, 6, 7, 4, 8 | (1,2) (1,3) (3,4) (1,5) (3,5)| (4,5) (5,6) |            |
+|                                                  |                           | (5,5) (6,6) (5,6) (7,7) (6,8)| (4,8)       |            |
+| `calculateColumnTotalWithMinValueAndFirstColumn` | 1, 2, 3, 4, 5, 6, 7, 4, 8 | (1,2) (1,3) (3,4) (1,5) (3,5)| (4,5) (5,6) |            |
+|                                                  |                           | (5,5) (6,6) (5,6) (7,7) (6,8)| (4,8)       |            |
+| `calculateColumnTotalWithMaxValueColumn`         | 1, 2, 3, 4, 5, 6, 7, 4, 8 | (1,2) (1,3) (3,4) (1,5) (3,5)| (4,5) (5,6) |            |
+|                                                  |                           | (5,5) (6,6) (5,6) (7,7) (6,8)| (4,8)       |            |
+| `calculateColumnTotalWithMinValueColumn`         | 1, 2, 3, 4, 5, 6, 7, 4, 8 | (1,2) (1,3) (3,4) (1,5) (3,5)| (4,5) (5,6) |            |
+|                                                  |                           | (5,5) (6,6) (5,6) (7,7) (6,8)| (4,8)       |            |
+| `calculateColumnTotalWithSumOf0AndFirstColumn`   | 1, 2, 3, 4, 5, 6, 7, 4, 8 | (1,2) (1,3) (3,4) (1,5) (3,5)| (4,5) (5,6) |            |
+|                                                  |                           | (5,5) (6,6) (5,6) (7,7) (6,8)| (4,8)       |            |
 
 ## A detailed description of the testing strategy for the new unit test
 
