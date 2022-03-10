@@ -15,7 +15,9 @@
 
 ## Introduction
 
-Text…
+In Assignment 3, Group 5 will explore coverage tools and its involvement in software testing. We will first explore the different coverage tools that is suggested for analyzing coverage metrics, and then looking at analyzing coverage manually.
+
+Lastly, we will look at how to use the coverage tool (EclEmma) to help us improve the test cases that we have developed from assignment 2.
 
 ## Video demo
 
