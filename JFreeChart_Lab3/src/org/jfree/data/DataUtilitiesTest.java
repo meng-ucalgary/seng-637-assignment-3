@@ -1,9 +1,5 @@
 package org.jfree.data;
 
-import org.jfree.data.DataUtilities;
-import org.jfree.data.Values2D;
-import org.jfree.data.KeyedValues;
-import org.jfree.data.DefaultKeyedValues;
 import static org.junit.Assert.*;
 import org.junit.*;
 import org.jmock.*;
@@ -26,26 +22,6 @@ public class DataUtilitiesTest {
 
     // test cases for calculateRowTotal(Values2D, int) ------------------------
     @Test
-    public void calculateRowTotalwithNullValue() {
-        mockingContext.checking(new Expectations() {
-            {
-                one(values).getColumnCount();
-                will(returnValue(3));
-                one(values).getValue(0, 0);
-                will(returnValue(7.5));
-                one(values).getValue(0, 1);
-                will(returnValue(2.5));
-                one(values).getValue(0, 2);
-                will(returnValue(null));
-            }
-        });
-
-        double result = DataUtilities.calculateRowTotal(values, 0);
-        assertEquals(10.0, result, .000000001d);
-    }
-	
-	
-	@Test
     public void calculateRowTotalFirstRow() {
         mockingContext.checking(new Expectations() {
             {
@@ -194,6 +170,26 @@ public class DataUtilitiesTest {
 
         double result = DataUtilities.calculateRowTotal(values, 0);
         assertEquals(Math.pow(2, 53), result, .000000001d);
+    }
+
+    // new test cases ---------------------------------------------------------
+    @Test
+    public void calculateRowTotalwithNullValue() {
+        mockingContext.checking(new Expectations() {
+            {
+                one(values).getColumnCount();
+                will(returnValue(3));
+                one(values).getValue(0, 0);
+                will(returnValue(7.5));
+                one(values).getValue(0, 1);
+                will(returnValue(2.5));
+                one(values).getValue(0, 2);
+                will(returnValue(null));
+            }
+        });
+
+        double result = DataUtilities.calculateRowTotal(values, 0);
+        assertEquals(10.0, result, .000000001d);
     }
     // ------------------------------------------------------------------------
 
@@ -572,31 +568,28 @@ public class DataUtilitiesTest {
         double result = DataUtilities.calculateRowTotal(values, 0, new int[] { 0, 1 });
         assertEquals(max, result, .000000001d);
     }
-    // NEW TEST CASES----------------------------------------------------------
 
+    // new test cases ---------------------------------------------------------
+    @Test
+    public void calculateRowTotalNullValue() {
+        mockingContext.checking(new Expectations() {
+            {
+                one(values).getColumnCount();
+                will(returnValue(3));
+                one(values).getValue(0, 0);
+                will(returnValue(7.16));
+                one(values).getValue(0, 2);
+                will(returnValue(null));
+            }
+        });
+
+        double result = DataUtilities.calculateRowTotal(values, 0, new int[] { 0, 2 });
+        assertEquals(7.16, result, .000000001d);
+    }
+    // ------------------------------------------------------------------------
 
     // test cases for calculateColumnTotal(Values2D, int) ---------------------
     @Test
-	public void calculateColumnTotalwithNullValue() {
-		mockingContext.checking(new Expectations() {
-			{
-				one(values).getRowCount();
-				will(returnValue(3));
-				one(values).getValue(0, 0);
-				will(returnValue(null));
-				one(values).getValue(1, 0);
-				will(returnValue(2.5));
-				one(values).getValue(2, 0);
-				will(returnValue(5.0));
-			}
-		});
-
-		double result = DataUtilities.calculateColumnTotal(values, 0);
-		assertEquals(7.5, result, .000000001d);
-	}
-	
-	
-	@Test
     public void calculateColumnTotalAllRowsFirstColumn() {
         mockingContext.checking(new Expectations() {
             {
@@ -746,6 +739,26 @@ public class DataUtilitiesTest {
 
         double result = DataUtilities.calculateColumnTotal(values, 0);
         assertEquals(0, result, .000000001d);
+    }
+
+    // new test cases ---------------------------------------------------------
+    @Test
+    public void calculateColumnTotalwithNullValue() {
+        mockingContext.checking(new Expectations() {
+            {
+                one(values).getRowCount();
+                will(returnValue(3));
+                one(values).getValue(0, 0);
+                will(returnValue(null));
+                one(values).getValue(1, 0);
+                will(returnValue(2.5));
+                one(values).getValue(2, 0);
+                will(returnValue(5.0));
+            }
+        });
+
+        double result = DataUtilities.calculateColumnTotal(values, 0);
+        assertEquals(7.5, result, .000000001d);
     }
     // ------------------------------------------------------------------------
 
@@ -1111,7 +1124,8 @@ public class DataUtilitiesTest {
         double result = DataUtilities.calculateColumnTotal(values, 0, new int[] { 0, 1 });
         assertEquals(max, result, .000000001d);
     }
-    // NEW TEST CASES--------------------------------------------------------------
+
+    // new test cases ---------------------------------------------------------
     @Test
     public void calculateColumnTotalAllRowsValidNullValue() {
         mockingContext.checking(new Expectations() {
@@ -1130,6 +1144,8 @@ public class DataUtilitiesTest {
         double result = DataUtilities.calculateColumnTotal(values, 0, new int[] { 0, 1, 2 });
         assertEquals(7.5, result, .000000001d);
     }
+    // ------------------------------------------------------------------------
+
     // test cases for getCumulativePercentages(KeyedValues) -------------------
     @Test
     public void getCumulativePercentagesWithNoKeyedValues() {
