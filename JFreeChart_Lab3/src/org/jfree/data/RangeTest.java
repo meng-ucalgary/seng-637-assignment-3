@@ -1,7 +1,6 @@
 package org.jfree.data;
 
 import static org.junit.Assert.*;
-import org.jfree.data.Range;
 import org.junit.*;
 
 public class RangeTest {
@@ -143,11 +142,6 @@ public class RangeTest {
 
     // test cases for intersects(double, double) ------------------------------
     @Test
-    public void intersectsWithReverse() {
-        assertTrue(this.exampleRange.intersects(-6, -9));
-    }
-	
-	@Test
     public void intersectsWithInputBLBAndLB() {
         assertFalse(this.exampleRange.intersects(-10.00001, -10));
     }
@@ -205,6 +199,12 @@ public class RangeTest {
     @Test
     public void intersectsWithInputNaNAnd1() {
         assertTrue(this.exampleRange.intersects(Double.NaN, 1));
+    }
+
+    // new test cases ---------------------------------------------------------
+    @Test
+    public void intersectsWithReverse() {
+        assertTrue(this.exampleRange.intersects(-6, -9));
     }
     // ------------------------------------------------------------------------
 
@@ -268,14 +268,15 @@ public class RangeTest {
         assertEquals("Testing epanding range to include negative max double", new Range(-Double.MAX_VALUE, 10),
                 Range.expandToInclude(this.exampleRange, -Double.MAX_VALUE));
     }
-    
-    // New Test cases------------------------------------------------------------
+
+    // new test cases ---------------------------------------------------------
     @Test
     public void expandToIncludeWithNullRange() {
         assertEquals("Testing epanding range to include Null Range", new Range(10, 10),
                 Range.expandToInclude(null, 10));
     }
-    
+    // ------------------------------------------------------------------------
+
     // test cases for combineIgnoringNaN(Range, Range) ------------------------
     @Test
     public void combineIgnoringNaNWithSmallerRange() {
@@ -397,6 +398,59 @@ public class RangeTest {
     public void combineIgnoringNaNWithItself() {
         assertEquals("Testing combining the range with itself", this.exampleRange,
                 Range.combineIgnoringNaN(this.exampleRange, this.exampleRange));
+    }
+
+    // new test cases ---------------------------------------------------------
+    @Test
+    public void combineIgnoringNaNWithFirstRangeNull() {
+        Range r2 = null;
+        assertEquals("Testing combining with range with first range as null",
+                new Range(-10, 10),
+                Range.combineIgnoringNaN(r2, this.exampleRange));
+    }
+
+    @Test
+    public void combineIgnoringNaNWithFirstRangeNullSecondRangeNaN() {
+        Range r1 = null;
+        Range r2 = new Range(Double.NaN, Double.NaN);
+        assertEquals("Testing combining first range null and second range having NaN bounds", null,
+                Range.combineIgnoringNaN(r1, r2));
+    }
+
+    @Test
+    public void combineIgnoringNaNWithBothRangeNull() {
+        assertEquals("Testing combining with both range null", null,
+                Range.combineIgnoringNaN(null, null));
+    }
+
+    @Test
+    public void combineIgnoringNaNWithFirstRangeNaNSecondRangeNull() {
+        Range r1 = new Range(Double.NaN, Double.NaN);
+        assertEquals("Testing combining first range NaN and second range null", null,
+                Range.combineIgnoringNaN(r1, null));
+    }
+
+    @Test
+    public void combineIgnoringNaNWithBothRangeNaN() {
+        Range r1 = new Range(Double.NaN, Double.NaN);
+        Range r2 = new Range(Double.NaN, Double.NaN);
+        assertEquals("Testing combining with both range NaN", null, Range.combineIgnoringNaN(r1, r2));
+    }
+
+    @Test
+    public void combineIgnoringNaNWithMaxBoundNaN() {
+        Range r1 = new Range(-10, Double.NaN);
+        Range r2 = new Range(-10, Double.NaN);
+        assertEquals("Testing combining with max bound NaN", new Range(-10, Double.NaN),
+                Range.combineIgnoringNaN(r1, r2));
+    }
+
+    @Test
+    public void combineIgnoringNaNWithMinBoundNaN() {
+        Range r1 = new Range(Double.NaN, 10);
+        Range r2 = new Range(Double.NaN, 10);
+        assertEquals("Testing combining with min bound NaN", new Range(Double.NaN, 10),
+                Range.combineIgnoringNaN(r1, r2));
     }
     // ------------------------------------------------------------------------
 
