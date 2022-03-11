@@ -6,8 +6,12 @@
 
 - [Introduction](#introduction)
 - [Video demo](#video-demo)
-- [Detailed description of unit test strategy](#detailed-description-of-unit-test-strategy)
-- [Test cases developed](#test-cases-developed)
+- [Manual data flow coverage](#manual-data-flow-coverage)
+- [Detailed description of testing strategy for new unit tests](#detailed-description-of-testing-strategy-for-new-unit-tests)
+- [Description of five selected test cases in increasing code coverage](#description-of-five-selected-test-cases-in-increasing-code-coverage)
+- [Coverage screenshots of each class and method](#coverage-screenshots-of-each-class-and-method)
+- [Pros and cons of coverage tools and reported metrics](#pros-and-cons-of-coverage-tools-and-reported-metrics)
+- [Requirements-based test generation vs Coverage-based test generation](#requirements-based-test-generation-vs-coverage-based-test-generation)
 - [Division of team work](#division-of-team-work)
 - [Difficulties, challenges, and lessons learned](#difficulties-challenges-and-lessons-learned)
 - [Comments and feedback](#comments-and-feedback)
@@ -15,9 +19,9 @@
 
 ## Introduction
 
-In Assignment 3, Group 5 will explore coverage tools and its involvement in software testing. We will first explore the different coverage tools that is suggested for analyzing coverage metrics, and then looking at analyzing coverage manually.
+In this assignment, we will explore coverage tools and its involvement in software testing. We will first explore the different coverage tools that is suggested for analyzing coverage metrics, and then we will be looking at analyzing coverage manually.
 
-Lastly, we will look at how to use the coverage tool (EclEmma) to help us improve the test cases that we have developed from assignment 2.
+Lastly, we will look at how to use the coverage tool (EclEmma) to help us improve the test cases that we have developed in Assignment 2.
 
 ## Video demo
 
@@ -25,11 +29,11 @@ Link to the video demonstration of testing is _TBA_.
 
 ## Manual data flow coverage
 
-### 1. `Range.intersects(double b0, double b1)`
+#### 1. `Range.intersects(double b0, double b1)`
 
-![DFG_Intersects.png](Report_Images/DFG_Intersects.jpg)
+![DFG for intersects](images/DFG_intersects.png)
 
-#### Defs, uses, and du-pairs
+##### Defs, uses, and du-pairs
 
 |               |                                |
 | ------------- | ------------------------------ |
@@ -41,7 +45,7 @@ Link to the video demonstration of testing is _TBA_.
 | **du-pairs**: | for b0: (1, 2), (1, 5), (1, 6) |
 |               | for b1: (1, 3), (1, 6)         |
 
-#### DU-pair coverage calculation per test case
+##### DU-pair coverage calculation per test case
 
 | Variable | Def at node (n) | dcu(v, n) | dpu(v, n)                                        |
 | -------- | --------------- | --------- | ------------------------------------------------ |
@@ -72,11 +76,11 @@ CU + PU = 10
 
 All-uses coverage = 80%
 
-### 2. `DataUtilities.calculateColumnTotal(Values2D data, int column)`
+#### 2. `DataUtilities.calculateColumnTotal(Values2D data, int column)`
 
-![DFG_CalculateColumnTotal.png](Report_Images/DFG_CalculateColumnTotal.jpg)
+![DFG for calculateColumnTotal](images/DFG_calculateColumnTotal.png)
 
-#### Defs, uses, and du-pairs
+##### Defs, uses, and du-pairs
 
 |               |                                                       |
 | ------------- | ----------------------------------------------------- |
@@ -99,7 +103,7 @@ All-uses coverage = 80%
 |               | for r: (3, 4), (3, 5), (3, 7), (7, 4), (7, 5), (7, 7) |
 |               | for n: (5, 5), (5, 6)                                 |
 
-#### DU-pair coverage calculation per test case
+##### DU-pair coverage calculation per test case
 
 | Variable | Def at node (n) | dcu(v, n) | dpu(v, n)        |
 | -------- | --------------- | --------- | ---------------- |
@@ -132,27 +136,27 @@ CU + PU = 21
 
 All-uses coverage = 95%
 
-## A detailed description of the testing strategy for the new unit test
+## Detailed description of testing strategy for new unit tests
 
-With the testing strategy in this assignment, we will first run the coverage tool (EclEmma) on the test cases that we developed from assignment 2 and analyze the coverage first with respect to the Lines, Branches and Method metrics. Afterwards, we will then designed specific test cases to cover the lines,branches and/or methods that are not covered from our previous test cases developed in assignment 2.
+We will first run the coverage tool (EclEmma) on the test cases that we developed in Assignment 2 and analyze the coverage of test cases using Lines, Branches, and Method coverage metrics.
 
-Lastly, coverage tool will run with these new test cases to ensure that the coverage metrics are above the expected requirements.
+Afterwards, if the coverage of any of the ten methods is below requirements, we will look at the source code of those methods to see which parts of the methods are not covered by existing test cases.
 
-## A high level description of five selected test cases you have designed using coverage information, and how they have increased code coverage
+Then we will develop new test cases to cover all possible parts source code of each method. Finally, we will verify the coverage with existing and new test cases to ensure that the coverage metrics are above the expected requirements.
 
-### Improving Coverage for intersects:
+## Description of five selected test cases in increasing code coverage
+
+#### 1. `Range.intersects(double b0, double b1)`
 
 Using EclEmma, the coverage for instructions, branches, lines, and methods is:
 
-Instructions: 100%
-
-Branches: 87.5%
-
-Lines: 100%
-
-Methods: 100%
-
-Complexity: 80%
+| Counter      | Coverage |
+| ------------ | -------- |
+| Instructions | 100.0 %  |
+| Branches     | 87.5 %   |
+| Lines        | 100.0 %  |
+| Methods      | 100.0 %  |
+| Complexity   | 80.0 %   |
 
 Although we have reached the minimum coverage of 70% coverage for branch, we can still find ways to improve this coverage.
 
@@ -164,62 +168,31 @@ To improve on the coverage, we have added a test case where we called the inters
 
 With the addition of this test code, all metrics have coverage of 100%:
 
-Instructions: 100%
+| Counter      | Coverage |
+| ------------ | -------- |
+| Instructions | 100.0 %  |
+| Branches     | 100.0 %  |
+| Lines        | 100.0 %  |
+| Methods      | 100.0 %  |
+| Complexity   | 100.0 %  |
 
-Branches: 100%
-
-Lines: 100%
-
-Methods: 100%
-
-Complexity: 80%
-
-### Improving Coverage for calculateRowTotal(Values2D, int):
+#### 2. `Range.expandToInclude(Range range, double value)`
 
 Using EclEmma, the coverage for instructions, branches, lines, and methods is:
 
-Instructions: 100%
-
-Branches: 75%
-
-Lines: 100%
-
-Methods: 100%
-
-Complexity: 66.7%
-
-Although we have reached the minimum coverage of 70% coverage for branch, we can still find ways to improve this coverage.
-
-When we analyze our code using branch coverage with EclEmma, we found that one of the conditions is not covered in the following line: if (n !=null)
-
-We have found that the branch that we did not cover is when n==null. To improve on the coverage, we have added a test case where we create a mock object that returns 3 values with one value being null.
-
-With the addition of this test code, all metrics have coverage of 100%:
-
-Instructions: 100%
-
-Branches: 100%
-
-Lines: 100%
-
-Methods: 100%
-
-Complexity: 80%
-
-### Improving Coverage for Range expandToInclude(Range range, double value):
-
-Using EclEmma, the coverage for instructions, branches, lines, and methods is:
-Instructions: 82.4%
-Branches: 83.3%
-Lines: 85.7%
-Methods: 100%
-Complexity: 75%
+| Counter      | Coverage |
+| ------------ | -------- |
+| Instructions | 82.4 %   |
+| Branches     | 83.3 %   |
+| Lines        | 85.7 %   |
+| Methods      | 100.0 %  |
+| Complexity   | 75.0 %   |
 
 The minimum of 70% branch coverage was already reached, however 90% line coverage was not.
 
 When we analyze our code using branch coverage with EclEmma, we found that one the one branch and line not covered is the following:
 
-```
+```java
 if (range == null) {
   return new Range(value, value);
 }
@@ -228,108 +201,210 @@ if (range == null) {
 The case not covered was when the input range is null.
 To improve on the coverage, we have added a test case where the expandToInclude method was called as follows:
 
-```
+```java
 Range.expandToInclude(null, 10));
 ```
 
 With the addition of this test code, all metrics have coverage of 100%:
-Instructions: 100%
-Branches: 100%
-Lines: 100%
-Methods: 100%
-Complexity: 80%
 
+| Counter      | Coverage |
+| ------------ | -------- |
+| Instructions | 100.0 %  |
+| Branches     | 100.0 %  |
+| Lines        | 100.0 %  |
+| Methods      | 100.0 %  |
+| Complexity   | 100.0 %  |
 
-### Improving Coverage for calculateColumnTotal(Values2D, int):
+#### 3. `Range.combineIgnoringNaN(Range range1, Range range2)`
+
+| Counter      | Coverage |
+| ------------ | -------- |
+| Instructions | 65.2 %   |
+| Branches     | 35.7 %   |
+| Lines        | 61.5 %   |
+| Methods      | 100.0 %  |
+| Complexity   | 25.0 %   |
+
+| Counter      | Coverage |
+| ------------ | -------- |
+| Instructions | 100.0 %  |
+| Branches     | 100.0 %  |
+| Lines        | 100.0 %  |
+| Methods      | 100.0 %  |
+| Complexity   | 100.0 %  |
+
+#### 4. `DataUtilities.calculateRowTotal(Values2D, int)`
+
+Using EclEmma, the coverage for instructions, branches, lines, and methods is:
+
+| Counter      | Coverage |
+| ------------ | -------- |
+| Instructions | 100.0 %  |
+| Branches     | 75.0 %   |
+| Lines        | 100.0 %  |
+| Methods      | 100.0 %  |
+| Complexity   | 66.7 %   |
+
+Although we have reached the minimum coverage of 70% coverage for branch, we can still find ways to improve this coverage.
+
+When we analyze our code using branch coverage with EclEmma, we found that one of the conditions is not covered in the following line: `if (n !=null)`
+
+We have found that the branch that we did not cover is when n==null. To improve on the coverage, we have added a test case where we create a mock object that returns 3 values with one value being null.
+
+With the addition of this test code, all metrics have coverage of 100%:
+
+| Counter      | Coverage |
+| ------------ | -------- |
+| Instructions | 100.0 %  |
+| Branches     | 100.0 %  |
+| Lines        | 100.0 %  |
+| Methods      | 100.0 %  |
+| Complexity   | 100.0 %  |
+
+#### 5. `DataUtilities.calculateColumnTotal(Values2D, int)`
 
 From the Assignment 2, the calculateColumnTotal method had the following coverage on metrics using the Eclemma coverage tool:
 
-Instructions: 100%
+| Counter      | Coverage |
+| ------------ | -------- |
+| Instructions | 100.0 %  |
+| Branches     | 75.0 %   |
+| Lines        | 100.0 %  |
+| Methods      | 100.0 %  |
+| Complexity   | 66.7 %   |
 
-Branches: 75%
+On careful observation of the code, it was discovered that one branch of the statement (if n != null) was missed, and that is the condition "n = null". A new test case was written taking this condition into consideration; we created a mock object that returns 3 values with one value being null. After running the test we achieved full coverage on all metrics.
 
-Lines: 100%
+| Counter      | Coverage |
+| ------------ | -------- |
+| Instructions | 100.0 %  |
+| Branches     | 100.0 %  |
+| Lines        | 100.0 %  |
+| Methods      | 100.0 %  |
+| Complexity   | 100.0 %  |
 
-Complexity: 66.7%
+## Coverage screenshots of each class and method
 
+#### 1. Coverage of `Range` class - BEFORE
 
-On careful observation of the code, it was discovered that one branch of the statement (if n != null) was missed, and that is the condition “n = null”. A new test case was written taking this condition into consideration; we created a mock object that returns 3 values with one value being null. After running the test we achieved full coverage on all metrics.
+- **Line coverage of `Range` class**
 
+  ![range line](images/Range_Line_Coverage_Before.png)
 
-Instructions: 100%
+- **Branch coverage of `Range` class**
 
-Branches: 100%
+  ![range branch](images/Range_Branch_Coverage_Before.png)
 
-Lines: 100%
+- **Method coverage of `Range` class**
 
-Complexity: 100%
+  ![range method](images/Range_Method_Coverage_Before.png)
 
+#### 2. Coverage of `Range` class - AFTER NEW TESTS
 
-## A detailed report of the coverage achieved of each class and method (a screen shot from the code cover results in green and red color would suffice)
+- **Line coverage of `Range` class**
 
-Range coverage Before  
-![image](Report_Images/Range_Line_Coverage_Before.PNG)  
-![image](Report_Images/Range_Branch_Coverage_Before.PNG)  
-![image](Report_Images/Range_Method_Coverage_Before.PNG)
+  ![range line](images/Range_Line_Coverage_After.png)
 
-Data Utilities coverage Before  
-![image](Report_Images/DataUtilities_Line_Coverage_Before.PNG)  
-![image](Report_Images/DataUtilities_Branch_Coverage_Before.PNG)  
-![image](Report_Images/DataUtilities_Method_Coverage_Before.PNG)
+- **Branch coverage of `Range` class**
 
-## Pros and Cons of coverage tools used and Metrics you report
+  ![range branch](images/Range_Branch_Coverage_After.png)
 
-In this report, we will be using EclEmma to report the coverage metrics. EclEmma only supports statement and branch coverage, but does not support condition coverage.
-Other tools have been experimented but we cannot get the condition coverage to work. For example, CodeCover do have condition coverage, but it seems that it is discontinued from support.
+- **Method coverage of `Range` class**
 
-When we run CodeCover on the current version of eclipse, it will produce the following error:
-Plug-in "org.codecover.eclipse" was unable to instantiate class "org.codecover.eclipse.junit.JUnitLaunchConfigurationDelegate".org/eclipse/osgi/framework/internal/core/BundleHost
+  ![range method](images/Range_Method_Coverage_After.png)
 
-Upon researching this issue on stackoverflow, it seems that only Eclipse Kepler can be used with CodeCover.
-We have also attempted to install Eclipse Kepler on another system to test CodeCover, but unfortunately we have multiple issues running the jfreechart code in that version of Eclipse.
+#### 3. Coverage of `DataUtilities` class - BEFORE
 
-JaCoco has basically the same featureset as EclEmma, there are no differences and thus EclEmma is used.
-As for Clover, when it transitioned to opensource by Atlassian sinceh 2017, it seems like support and updates were dropped and requires users to compile it themselves in order to have it run on their ide. We had problems in compiling it as we get errors when trying to Clover to work for our test cases.
-Coverlipse (http://coverlipse.sourceforge.net/) and Cobertura (http://cobertura.github.io/cobertura/) had not been tested.
-Thus, going forward, the tests made in this report will be using EclEmma.
+- **Line coverage of `DataUtilities` class**
 
-## A comparison on the advantages and disadvantages of requirements-based test generation and coverage-based test generation.
+  ![datautilities line](images/DataUtilities_Line_Coverage_Before.png)
 
-### Requirements-based test generation
+- **Branch coverage of `DataUtilities` class**
 
-- Advantages
-  - More representative of actual use cases for a user would read Javadoc
+  ![datautilities branch](images/DataUtilities_Branch_Coverage_Before.png)
+
+- **Method coverage of `DataUtilities` class**
+
+  ![datautilities method](images/DataUtilities_Method_Coverage_Before.png)
+
+#### 4. Coverage of `DataUtilities` class - AFTER NEW TESTS
+
+- **Line coverage of `DataUtilities` class**
+
+  ![datautilities line](images/DataUtilities_Line_Coverage_After.png)
+
+- **Branch coverage of `DataUtilities` class**
+
+  ![datautilities branch](images/DataUtilities_Branch_Coverage_After.png)
+
+- **Method coverage of `DataUtilities` class**
+
+  ![datautilities method](images/DataUtilities_Method_Coverage_After.png)
+
+## Pros and cons of coverage tools and reported metrics
+
+In this report, we used **EclEmma** to report the coverage metrics. EclEmma supports statement and branch coverage, but does not support condition coverage.
+
+Other tools have been experimented but we cannot get the condition coverage to work. For example, **CodeCover** do have condition coverage, but it seems that it is discontinued from support.
+
+When we run CodeCover on the current version of eclipse, it will produce the following error -
+
+`Plug-in "org.codecover.eclipse" was unable to instantiate class "org.codecover.eclipse.junit.JUnitLaunchConfigurationDelegate".org/eclipse/osgi/framework/internal/core/BundleHost`
+
+Upon researching this issue on stackoverflow, it seems that only Eclipse Kepler can be used with **CodeCover**.
+We have also attempted to install Eclipse Kepler on another system to test **CodeCover**, but unfortunately we have multiple issues running the `JFreeChart` code in that version of Eclipse.
+
+**JaCoco** has basically the same featureset as **EclEmma**, there are no differences and thus **EclEmma** is preferred.
+
+As for **Clover**, when it transitioned to opensource by Atlassian since 2017, it seems like support and updates were dropped and requires users to compile it themselves in order to run it on their IDE. The instructions given on their website are also not detailed enough. We tried to compile **Clover** on our end but were unsuccessful.
+
+**[Coverlipse](http://coverlipse.sourceforge.net/)** and **[Cobertura](http://cobertura.github.io/cobertura/)** had not been tested.
+
+Thus, finally, all the tests coverage was done using **EclEmma**.
+
+## Requirements-based test generation vs Coverage-based test generation
+
+#### Requirements-based test generation
+
+- **Advantages**
+
+  - More representative of actual use cases for a user who would read Javadoc
   - Test cases are not biased by looking at the code
-- Disadvantages
+
+- **Disadvantages**
+
   - No way to verify test coverage
   - Planning must be more thorough to ensure all cases are tested
-  - Test cases may test the same paths multiple times as testers are unsure of the code
+  - Test cases may test the same paths multiple times as testers are unsure of the source code
 
-### Coverage-based test generation
+#### Coverage-based test generation
 
-- Advantages
+- **Advantages**
+
   - Can maximize coverage by designing test cases around the methods
   - Can verify previous black box tests
-  - Can ensure test are not all testing the same cases/methods/paths
-- Disadvantages
+  - Can ensure test are not all testing the same cases/conditions/methods/paths
+
+- **Disadvantages**
+
   - Test cases can be biased by looking at the code
-  - Test cases deigned only around coverage may not test all boundary cases, ex: incorrect code may pass with normal values but fail at boudaries even with 100% coverage
-  - Reliance on coverage tools which offer different features.
+  - Test cases designed only around coverage may not test all boundary cases, eg incorrect code may pass with normal values but fail at boudaries even with 100% coverage
+  - Reliance on coverage tools which offer different features
 
 ## Division of team work
 
-### 3.2 Manual data flow coverage
+**Division of manual data flow coverage**
 
-We first split the work of producing the flow graph and analyzing the DU pairs into two parts, one group (Drew and Bhavyai) is looking at the intersect method and the other group (Michael and Oke) is doing the calculateColumn total method. After the two groups finish the work, the two groups will then review each others work to see if there are any issues.
+The work of producing the data flow graphs and analyzing the DU pairs was split into two parts, one group (Drew and Bhavyai) completed the `intersect` method and the other group (Michael and Oke) completed the `calculateColumnTotal` method. After the two groups finished their respective work, we reviewed each other's work.
 
-### 3.3 TEST SUITE DEVELOPMENT
+**Division of new test cases**
 
-Each of the four testers will increase coverage of the following methods.
+Each of the four testers increased coverage of the methods according to the data in below table
 
 | API method                                                 | Tester                                  |
 | ---------------------------------------------------------- | --------------------------------------- |
-| `Range.isNaNRange()`                                       | None (Already 100%)                     |
-| `Range.shift(Range, double, boolean)`                      | Okeoghenemarho Obuareghe (Already 100%) |
+| `Range.isNaNRange()`                                       | Bhavyai Gupta (already 100%)            |
+| `Range.shift(Range, double, boolean)`                      | Okeoghenemarho Obuareghe (already 100%) |
 | `Range.intersects(double, double)`                         | Michael Man Yin Lee                     |
 | `Range.expandToInclude(Range, double)`                     | Drew Burritt                            |
 | `Range.combineIgnoringNaN(Range, Range)`                   | Bhavyai Gupta                           |
@@ -337,11 +412,11 @@ Each of the four testers will increase coverage of the following methods.
 | `DataUtilities.calculateRowTotal(Values2D, int, int[])`    | Bhavyai Gupta                           |
 | `DataUtilities.calculateColumnTotal(Values2D, int)`        | Michael Man Yin Lee                     |
 | `DataUtilities.calculateColumnTotal(Values2D, int, int[])` | Drew Burritt                            |
-| `DataUtilities.getCumulativePercentages(KeyedValues)`      | Okeoghenemarho Obuareghe (Already 100%) |
+| `DataUtilities.getCumulativePercentages(KeyedValues)`      | Okeoghenemarho Obuareghe (already 100%) |
 
 ## Difficulties, challenges, and lessons learned
 
-Coverage is a really good tool to analyze what is missing in the test case, but as mentioned in the disadvantages, this only test whether the test would cover all aspects of code, but does not look at the requirements itself.
+Coverage is a really good tool to analyze what is missing in the test case, but as mentioned in the disadvantages, this only tests whether the test would cover all aspects of code, but does not look at the requirements itself.
 
 We believe that, both requirements base and coverage base tests are equally important in software testing.
 
@@ -349,13 +424,13 @@ We believe that, both requirements base and coverage base tests are equally impo
 
 1. This assignment has given us a great opportunity in learning how to make sure the test cases we write are complete and cover most of the source code effectively.
 
-2. This assignment gave us a chance to review our assignment 2 work and see how well we did with black box testing
+2. This assignment gave us a chance to review our assignment 2 work and see how well we did with black box testing.
 
 3. EclEmma was used as the code coverage tool, which is already available Eclipse as an installed plugin.
 
 4. The assignment description document [`Assignment3.md`](Assignment3.md) is very detailed and comprehensive, and it was easy to follow.
 
-5. The Teacher Assistant has provided us very detailed and prompt feedback in clarifying any questions that we had on the assignment. For example, for the scope for section 3.3 ("Test Suite Development"), he helped us clarify that we only need to create tests to cover the required coverage metrics on the methods that we have done from assignment 2 instead of all of the methods within the Range and DataUtilities class
+5. The Teacher Assistant has provided us very detailed and prompt feedback in clarifying any questions that we had on the assignment. For example, for the scope for section 3.3 ("Test Suite Development"), he helped us clarify that we only need to create tests to cover the required coverage metrics on the methods that we have done from assignment 2 instead of all of the methods within the Range and DataUtilities class.
 
 ## Contributors
 
