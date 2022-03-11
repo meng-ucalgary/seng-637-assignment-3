@@ -25,7 +25,7 @@ Lastly, we will look at how to use the coverage tool (EclEmma) to help us improv
 
 ## Video demo
 
-Link to the video demonstration of testing is _TBA_.
+Link to the video demonstration of coverage metrics is [here](https://www.youtube.com/watch?v=Q9oMbliU3gk).
 
 ## Manual data flow coverage
 
