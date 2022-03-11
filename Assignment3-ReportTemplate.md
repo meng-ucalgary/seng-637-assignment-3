@@ -49,59 +49,55 @@ Link to the video demonstration of testing is _TBA_.
 | b1       | 1               | {}        | {(3, 4), (3, 7), (6, 4), (6, 7)}                 |
 |          | Total           | CU = 0    | PU = 10                                          |
 
-| Test case                      | DU path         | DU-pairs covered       | PUc                    | All-uses coverage % |
-| ------------------------------ | --------------- | ---------------------- | ---------------------- | ------------------- |
-| `intersectsWithInputBLBAndLB`  | [1, 2, 3, 7]    | (1, 2), (1, 3)         | (2, 3), (3, 7)         | 20%                 |
-| `intersectsWithInputBLBAndALB` | [1, 2, 3, 4]    | (1, 2), (1, 3)         | (2, 3), (3, 4)         | 20%                 |
-| `intersectsWithInputBLBAndAUB` | [1, 2, 3, 4]    | (1, 2), (1, 3)         | (2, 3), (3, 4)         | 20%                 |
-| `intersectsWithInputLBAndALB`  | [1, 2, 3, 4]    | (1, 2), (1, 3)         | (2, 3), (3, 4)         | 20%                 |
-| `intersectsWithInputLBAndUB`   | [1, 2, 3, 4]    | (1, 2), (1, 3)         | (2, 3), (3, 4)         | 20%                 |
-| `intersectsWithInputNOMAndNOM` | [1, 2, 5, 6, 4] | (1, 2), (1, 5), (1, 6) | (2, 5), (5, 6), (6, 4) | 40%                 |
-| `intersectsWithInputBUBAndUB`  | [1, 2, 5, 6, 4] | (1, 2), (1, 5), (1, 6) | (2, 5), (5, 6), (6, 4) | 40%                 |
-| `intersectsWithInputUBAndAUB`  | [1, 2, 5, 7]    | (1, 2), (1, 5)         | (2, 5), (5, 7)         | 20%                 |
-| `intersectsWithInputMINAndAUB` | [1, 2, 5, 6, 4] | (1, 2), (1, 5), (1, 6) | (2, 5), (5, 6), (6, 4) | 40%                 |
-| `intersectsWithInputBLBAndMAX` | [1, 2, 3, 4]    | (1, 2), (1, 3)         | (2, 3), (3, 4)         | 20%                 |
-| `intersectsWithInput0And0`     | [1, 2, 5, 6, 4] | (1, 2), (1, 5), (1, 6) | (2, 5), (5, 6), (6, 4) | 40%                 |
-| `intersectsWithInputNaNAnd1`   | [1, 2, 5, 7]    | (1, 2), (1, 5)         | (2, 5), (5, 7)         | 20%                 |
+| Test case                      | Execution path  | DU-pairs covered       | CUc + PUc                      | All-uses coverage % |
+| ------------------------------ | --------------- | ---------------------- | ------------------------------ | ------------------- |
+| `intersectsWithInputBLBAndLB`  | [1, 2, 3, 7]    | (1, 2), (1, 3)         | (2, 3), (3, 7)                 | 20%                 |
+| `intersectsWithInputBLBAndALB` | [1, 2, 3, 4]    | (1, 2), (1, 3)         | (2, 3), (3, 4)                 | 20%                 |
+| `intersectsWithInputBLBAndAUB` | [1, 2, 3, 4]    | (1, 2), (1, 3)         | (2, 3), (3, 4)                 | 20%                 |
+| `intersectsWithInputLBAndALB`  | [1, 2, 3, 4]    | (1, 2), (1, 3)         | (2, 3), (3, 4)                 | 20%                 |
+| `intersectsWithInputLBAndUB`   | [1, 2, 3, 4]    | (1, 2), (1, 3)         | (2, 3), (3, 4)                 | 20%                 |
+| `intersectsWithInputNOMAndNOM` | [1, 2, 5, 6, 4] | (1, 2), (1, 5), (1, 6) | (2, 5), (5, 6), (6, 4), (6, 4) | 40%                 |
+| `intersectsWithInputBUBAndUB`  | [1, 2, 5, 6, 4] | (1, 2), (1, 5), (1, 6) | (2, 5), (5, 6), (6, 4), (6, 4) | 40%                 |
+| `intersectsWithInputUBAndAUB`  | [1, 2, 5, 7]    | (1, 2), (1, 5)         | (2, 5), (5, 7)                 | 20%                 |
+| `intersectsWithInputMINAndAUB` | [1, 2, 5, 6, 4] | (1, 2), (1, 5), (1, 6) | (2, 5), (5, 6), (6, 4), (6, 4) | 40%                 |
+| `intersectsWithInputBLBAndMAX` | [1, 2, 3, 4]    | (1, 2), (1, 3)         | (2, 3), (3, 4)                 | 20%                 |
+| `intersectsWithInput0And0`     | [1, 2, 5, 6, 4] | (1, 2), (1, 5), (1, 6) | (2, 5), (5, 6), (6, 4), (6, 4) | 40%                 |
+| `intersectsWithInputNaNAnd1`   | [1, 2, 5, 7]    | (1, 2), (1, 5)         | (2, 5), (5, 7)                 | 20%                 |
 
-**Total**:  
-PUc: (2, 3), (3, 7), (3, 4), (2, 5), (5, 6), (6, 4) (5, 7)  
-All-uses coverage: 70%
+**Total**
 
-### 2. `DataUtilities.calculateColumnTotal(Values2D data, int column, int[] validRows)`
+CUc + PUc = 8
+
+CU + PU = 10
+
+All-uses coverage = 80%
+
+### 2. `DataUtilities.calculateColumnTotal(Values2D data, int column)`
 
 ![DFG_CalculateColumnTotal.png](Report_Images/DFG_CalculateColumnTotal.jpg)
 
 #### Defs, uses, and du-pairs
 
-|               |                                       |
-| ------------- | ------------------------------------- |
-| **defs**:     | def(1) = {data}                       |
-|               | def(1) = {column}                     |
-|               | def(3) = {r}                          |
-|               | def(3) = {rowCount}                   |
-|               | def(3) = {total}                      |
-|               | def(5) = {n}                          |
-|               | def(6) = {total}                      |
-|               | def(7) = {r}                          |
-| **uses**:     | use(2) = {data}                       |
-|               | use(3) = {data}                       |
-|               | use(4) = {r}                          |
-|               | use(4) = {rowCount}                   |
-|               | use(5) = {data}                       |
-|               | use(5) = {r}                          |
-|               | use(5) = {column}                     |
-|               | use(5) = {n}                          |
-|               | use(6) = {total}                      |
-|               | use(6) = {n}                          |
-|               | use(7) = {r}                          |
-|               | use(8) = {total}                      |
-| **du-pairs**: | for data: (1, 3), (1, 7), (1, 5)      |
-|               | for column: (1, 5)                    |
-|               | for total: (3, 6), (6, 6), (3, 8)     |
-|               | for rowCount: (3, 4)                  |
-|               | for r: (3, 4), (3, 5), (3, 7), (7, 7) |
-|               | for n: (5, 5), (5, 6)                 |
+|               |                                                       |
+| ------------- | ----------------------------------------------------- |
+| **defs**:     | def(1) = {data, column}                               |
+|               | def(3) = {total, rowCount, r}                         |
+|               | def(5) = {n}                                          |
+|               | def(6) = {total}                                      |
+|               | def(7) = {r}                                          |
+| **uses**:     | use(2) = {data}                                       |
+|               | use(3) = {data}                                       |
+|               | use(4) = {r, rowCount}                                |
+|               | use(5) = {data, r, column, n}                         |
+|               | use(6) = {total, n}                                   |
+|               | use(7) = {r}                                          |
+|               | use(8) = {total}                                      |
+| **du-pairs**: | for data: (1, 2), (1, 3), (1, 5)                      |
+|               | for column: (1, 5)                                    |
+|               | for total: (3, 6), (3, 8), (6, 6), (6, 8)             |
+|               | for rowCount: (3, 4)                                  |
+|               | for r: (3, 4), (3, 5), (3, 7), (7, 4), (7, 5), (7, 7) |
+|               | for n: (5, 5), (5, 6)                                 |
 
 #### DU-pair coverage calculation per test case
 
@@ -110,25 +106,31 @@ All-uses coverage: 70%
 | data     | 1               | {2, 3, 5} | {}               |
 | column   | 1               | {5}       | {}               |
 | r        | 3               | {5, 7}    | {(4, 5), (4, 8)} |
-| r        | 7               | {7}       | {}               |
-| rowCount | 3               | {}        | {4}              |
+| r        | 7               | {5, 7}    | {(4, 5), (4, 8)} |
+| rowCount | 3               | {}        | {(4, 5), (4, 8)} |
 | total    | 3               | {6, 8}    | {}               |
-| total    | 6               | {6}       | {}               |
-| n        | 3               | {6}       | {(5, 6), (5, 7)} |
-|          | Total           | CU = 7   | PU = 5           |
+| total    | 6               | {6, 8}    | {}               |
+| n        | 5               | {6}       | {(5, 6), (5, 7)} |
+|          | Total           | CU = 13   | PU = 8           |
 
-| Test case                                        | DU path                     | DU-pairs covered                                                              | CUc+PUc                    | All-uses coverage % |
-| ------------------------------------------------ | --------------------------- | ----------------------------------------------------------------------------- | ---------------------- | ------------------- |
-| `calculateColumnTotalAllRowsFirstColumn`         | [1, 2, 3, 4, 5, 6, 7, 4, 8] | (1, 2), (1, 3), (3, 4), (1, 5), (3, 5), (5, 5), (6, 6), (5, 6) (7, 7), (6, 8) | (2,3,5), (5),(6,8), (6),(6),(4, 5), (5, 6), (4, 8), (4) |75%                     |
-| `calculateColumnTotalAllRowsMiddleColumn`        | [1, 2, 3, 4, 5, 6, 7, 4, 8] | (1, 2), (1, 3), (3, 4), (1, 5), (3, 5), (5, 5), (6, 6), (5, 6) (7, 7), (6, 8) | (2,3,5), (5),(6,8), (6),(6),(4, 5), (5, 6), (4, 8), (4) |75%                     |
-| `calculateColumnTotalAllRowsLastColumn`          | [1, 2, 3, 4, 5, 6, 7, 4, 8] | (1, 2), (1, 3), (3, 4), (1, 5), (3, 5), (5, 5), (6, 6), (5, 6) (7, 7), (6, 8) | (2,3,5), (5),(6,8), (6),(6),(4, 5), (5, 6), (4, 8), (4) |75%                     |
-| `calculateColumnTotalWithMaxValueAndFirstColumn` | [1, 2, 3, 4, 5, 6, 7, 4, 8] | (1, 2), (1, 3), (3, 4), (1, 5), (3, 5), (5, 5), (6, 6), (5, 6) (7, 7), (6, 8) | (2,3,5), (5),(6,8), (6),(6),(4, 5), (5, 6), (4, 8), (4) |75%                     |
-| `calculateColumnTotalWithMinValueAndFirstColumn` | [1, 2, 3, 4, 5, 6, 7, 4, 8] | (1, 2), (1, 3), (3, 4), (1, 5), (3, 5), (5, 5), (6, 6), (5, 6) (7, 7), (6, 8) | (2,3,5), (5),(6,8), (6),(6),(4, 5), (5, 6), (4, 8), (4) |75%                     |
-| `calculateColumnTotalWithMaxValueColumn`         | [1, 2, 3, 4, 5, 6, 7, 4, 8] | (1, 2), (1, 3), (3, 4), (1, 5), (3, 5), (5, 5), (6, 6), (5, 6) (7, 7), (6, 8) | (2,3,5), (5),(6,8), (6),(6),(4, 5), (5, 6), (4, 8), (4) |75%                     |
-| `calculateColumnTotalWithMinValueColumn`         | [1, 2, 3, 4, 5, 6, 7, 4, 8] | (1, 2), (1, 3), (3, 4), (1, 5), (3, 5), (5, 5), (6, 6), (5, 6) (7, 7), (6, 8) | (2,3,5), (5),(6,8), (6),(6),(4, 5), (5, 6), (4, 8), (4) |75%                     |
-| `calculateColumnTotalWithSumOf0AndFirstColumn`   | [1, 2, 3, 4, 5, 6, 7, 4, 8] | (1, 2), (1, 3), (3, 4), (1, 5), (3, 5), (5, 5), (6, 6), (5, 6) (7, 7), (6, 8) | (2,3,5), (5),(6,8), (6),(6),(4, 5), (5, 6), (4, 8), (4) |75%                     |
+| Test case                                        | Execution path                                   | DU-pairs covered                                                                                                                       | CUc + PUc                                                                                                 | All-uses coverage % |
+| ------------------------------------------------ | ------------------------------------------------ | -------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------- | ------------------- |
+| `calculateColumnTotalAllRowsFirstColumn`         | [1, 2, 3, 4, 5, 6, 7, 4, 5, 6, 7, 4, 5, 6, 7, 8] | (1, 2), (1, 3), (1, 5), (1, 5), (3, 6), (3, 8), (6, 6), (6, 8), (3, 4), (3, 4), (3, 5), (3, 7), (7, 4), (7, 5), (7, 7), (5, 5), (5, 6) | {2,3,5}, {5}, {5, 7}, {5, 7}, {6, 8}, {6, 8}, {6}, (4, 5), (4, 8), (4, 5), (4, 8), (4, 5), (4, 8), (5, 6) | 95%                 |
+| `calculateColumnTotalAllRowsMiddleColumn`        | [1, 2, 3, 4, 5, 6, 7, 4, 5, 6, 7, 4, 5, 6, 7, 8] | (1, 2), (1, 3), (1, 5), (1, 5), (3, 6), (3, 8), (6, 6), (6, 8), (3, 4), (3, 4), (3, 5), (3, 7), (7, 4), (7, 5), (7, 7), (5, 5), (5, 6) | {2,3,5}, {5}, {5, 7}, {5, 7}, {6, 8}, {6, 8}, {6}, (4, 5), (4, 8), (4, 5), (4, 8), (4, 5), (4, 8), (5, 6) | 95%                 |
+| `calculateColumnTotalAllRowsLastColumn`          | [1, 2, 3, 4, 5, 6, 7, 4, 5, 6, 7, 4, 5, 6, 7, 8] | (1, 2), (1, 3), (1, 5), (1, 5), (3, 6), (3, 8), (6, 6), (6, 8), (3, 4), (3, 4), (3, 5), (3, 7), (7, 4), (7, 5), (7, 7), (5, 5), (5, 6) | {2,3,5}, {5}, {5, 7}, {5, 7}, {6, 8}, {6, 8}, {6}, (4, 5), (4, 8), (4, 5), (4, 8), (4, 5), (4, 8), (5, 6) | 95%                 |
+| `calculateColumnTotalWithMaxValueAndFirstColumn` | [1, 2, 3, 4, 5, 6, 7, 4, 5, 6, 7, 4, 5, 6, 7, 8] | (1, 2), (1, 3), (1, 5), (1, 5), (3, 6), (3, 8), (6, 6), (6, 8), (3, 4), (3, 4), (3, 5), (3, 7), (7, 4), (7, 5), (7, 7), (5, 5), (5, 6) | {2,3,5}, {5}, {5, 7}, {5, 7}, {6, 8}, {6, 8}, {6}, (4, 5), (4, 8), (4, 5), (4, 8), (4, 5), (4, 8), (5, 6) | 95%                 |
+| `calculateColumnTotalWithMinValueAndFirstColumn` | [1, 2, 3, 4, 5, 6, 7, 4, 5, 6, 7, 4, 5, 6, 7, 8] | (1, 2), (1, 3), (1, 5), (1, 5), (3, 6), (3, 8), (6, 6), (6, 8), (3, 4), (3, 4), (3, 5), (3, 7), (7, 4), (7, 5), (7, 7), (5, 5), (5, 6) | {2,3,5}, {5}, {5, 7}, {5, 7}, {6, 8}, {6, 8}, {6}, (4, 5), (4, 8), (4, 5), (4, 8), (4, 5), (4, 8), (5, 6) | 95%                 |
+| `calculateColumnTotalWithMaxValueColumn`         | [1, 2, 3, 4, 5, 6, 7, 4, 5, 6, 7, 4, 5, 6, 7, 8] | (1, 2), (1, 3), (1, 5), (1, 5), (3, 6), (3, 8), (6, 6), (6, 8), (3, 4), (3, 4), (3, 5), (3, 7), (7, 4), (7, 5), (7, 7), (5, 5), (5, 6) | {2,3,5}, {5}, {5, 7}, {5, 7}, {6, 8}, {6, 8}, {6}, (4, 5), (4, 8), (4, 5), (4, 8), (4, 5), (4, 8), (5, 6) | 95%                 |
+| `calculateColumnTotalWithMinValueColumn`         | [1, 2, 3, 4, 5, 6, 7, 4, 5, 6, 7, 4, 5, 6, 7, 8] | (1, 2), (1, 3), (1, 5), (1, 5), (3, 6), (3, 8), (6, 6), (6, 8), (3, 4), (3, 4), (3, 5), (3, 7), (7, 4), (7, 5), (7, 7), (5, 5), (5, 6) | {2,3,5}, {5}, {5, 7}, {5, 7}, {6, 8}, {6, 8}, {6}, (4, 5), (4, 8), (4, 5), (4, 8), (4, 5), (4, 8), (5, 6) | 95%                 |
+| `calculateColumnTotalWithSumOf0AndFirstColumn`   | [1, 2, 3, 4, 5, 6, 7, 4, 5, 6, 7, 4, 5, 6, 7, 8] | (1, 2), (1, 3), (1, 5), (1, 5), (3, 6), (3, 8), (6, 6), (6, 8), (3, 4), (3, 4), (3, 5), (3, 7), (7, 4), (7, 5), (7, 7), (5, 5), (5, 6) | {2,3,5}, {5}, {5, 7}, {5, 7}, {6, 8}, {6, 8}, {6}, (4, 5), (4, 8), (4, 5), (4, 8), (4, 5), (4, 8), (5, 6) | 95%                 |
 
-All-uses coverage: 75%
+**Total**
+
+CUc + PUc = 20
+
+CU + PU = 21
+
+All-uses coverage = 95%
 
 ## A detailed description of the testing strategy for the new unit test
 
@@ -172,18 +174,17 @@ Methods: 100%
 
 Complexity: 80%
 
-
 ### Improving Coverage for calculateRowTotal(Values2D, int):
 
-Using EclEmma, the coverage for instructions, branches, lines, and methods is: 
+Using EclEmma, the coverage for instructions, branches, lines, and methods is:
 
-Instructions: 100% 
+Instructions: 100%
 
-Branches: 75% 
+Branches: 75%
 
-Lines: 100% 
+Lines: 100%
 
-Methods: 100% 
+Methods: 100%
 
 Complexity: 66.7%
 
@@ -193,15 +194,15 @@ When we analyze our code using branch coverage with EclEmma, we found that one o
 
 We have found that the branch that we did not cover is when n==null. To improve on the coverage, we have added a test case where we create a mock object that returns 3 values with one value being null.
 
-With the addition of this test code, all metrics have coverage of 100%: 
+With the addition of this test code, all metrics have coverage of 100%:
 
-Instructions: 100% 
+Instructions: 100%
 
-Branches: 100% 
+Branches: 100%
 
-Lines: 100% 
+Lines: 100%
 
-Methods: 100% 
+Methods: 100%
 
 Complexity: 80%
 
@@ -217,16 +218,18 @@ Complexity: 75%
 The minimum of 70% branch coverage was already reached, however 90% line coverage was not.
 
 When we analyze our code using branch coverage with EclEmma, we found that one the one branch and line not covered is the following:
-``` 
+
+```
 if (range == null) {
   return new Range(value, value);
-} 
+}
 ```
 
 The case not covered was when the input range is null.
 To improve on the coverage, we have added a test case where the expandToInclude method was called as follows:
-```  
-Range.expandToInclude(null, 10)); 
+
+```
+Range.expandToInclude(null, 10));
 ```
 
 With the addition of this test code, all metrics have coverage of 100%:
@@ -260,7 +263,7 @@ Upon researching this issue on stackoverflow, it seems that only Eclipse Kepler 
 We have also attempted to install Eclipse Kepler on another system to test CodeCover, but unfortunately we have multiple issues running the jfreechart code in that version of Eclipse.
 
 JaCoco has basically the same featureset as EclEmma, there are no differences and thus EclEmma is used.
-As for Clover, when it transitioned to opensource by Atlassian sinceh 2017, it seems like support and updates were dropped and requires users to compile it themselves in order to have it run on their ide. We had problems in compiling it as we get errors when trying to Clover to work for our test cases. 
+As for Clover, when it transitioned to opensource by Atlassian sinceh 2017, it seems like support and updates were dropped and requires users to compile it themselves in order to have it run on their ide. We had problems in compiling it as we get errors when trying to Clover to work for our test cases.
 Coverlipse (http://coverlipse.sourceforge.net/) and Cobertura (http://cobertura.github.io/cobertura/) had not been tested.
 Thus, going forward, the tests made in this report will be using EclEmma.
 
@@ -326,7 +329,7 @@ We believe that, both requirements base and coverage base tests are equally impo
 
 4. The assignment description document [`Assignment3.md`](Assignment3.md) is very detailed and comprehensive, and it was easy to follow.
 
-5. The Teacher Assistant has provided us very detailed and prompt feedback in clarifying any questions that we had on the assignment. For example, for the scope for section 3.3 ("Test Suite Development"), he helped us clarify that we only need to create tests to cover the required coverage metrics on the methods that we have done from assignment 2 instead of all of the methods within the Range and DataUtilities class 
+5. The Teacher Assistant has provided us very detailed and prompt feedback in clarifying any questions that we had on the assignment. For example, for the scope for section 3.3 ("Test Suite Development"), he helped us clarify that we only need to create tests to cover the required coverage metrics on the methods that we have done from assignment 2 instead of all of the methods within the Range and DataUtilities class
 
 ## Contributors
 
