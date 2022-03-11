@@ -466,7 +466,7 @@ We believe that, both requirements base and coverage base tests are equally impo
 
 3. EclEmma was used as the code coverage tool, which is already available Eclipse as an installed plugin.
 
-4. The assignment description document [`Assignment3.md`](Assignment3.md) is very detailed and comprehensive, and it was easy to follow.
+4. The assignment description document [`Assignment_Description.md`](Assignment_Description.md) is very detailed and comprehensive, and it was easy to follow.
 
 5. The Teacher Assistant has provided us very detailed and prompt feedback in clarifying any questions that we had on the assignment. For example, for the scope for section 3.3 ("Test Suite Development"), he helped us clarify that we only need to create tests to cover the required coverage metrics on the methods that we have done from assignment 2 instead of all of the methods within the Range and DataUtilities class.
 
