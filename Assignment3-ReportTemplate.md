@@ -245,15 +245,23 @@ Complexity: 80%
 From the Assignment 2, the calculateColumnTotal method had the following coverage on metrics using the Eclemma coverage tool:
 
 Instructions: 100%
+
 Branches: 75%
+
 Lines: 100%
+
 Complexity: 66.7%
+
 
 On careful observation of the code, it was discovered that one branch of the statement (if n != null) was missed, and that is the condition “n = null”. A new test case was written taking this condition into consideration, and after running the test we achieved full coverage on all metrics.
 
+
 Instructions: 100%
+
 Branches: 100%
+
 Lines: 100%
+
 Complexity: 100%
 
 
