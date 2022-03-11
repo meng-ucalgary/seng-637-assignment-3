@@ -146,9 +146,9 @@ Then we will develop new test cases to cover all possible parts source code of e
 
 ## Description of five selected test cases in increasing code coverage
 
-#### 1. `Range.intersects(double b0, double b1)`
+#### 1. `RangeTest.intersectsWithReverse()`
 
-Using EclEmma, the coverage for instructions, branches, lines, and methods is:
+Before adding test case `RangeTest.intersectsWithReverse()`, the coverage calculated using EclEmma was as mentioned in below table.
 
 | Counter      | Coverage |
 | ------------ | -------- |
@@ -160,13 +160,17 @@ Using EclEmma, the coverage for instructions, branches, lines, and methods is:
 
 Although we have reached the minimum coverage of 70% coverage for branch, we can still find ways to improve this coverage.
 
-When we analyze our code using branch coverage with EclEmma, we found that one of the conditions is not covered in the following line:
+When we analyze our test code coverage using EclEmma, we found that following condition is only partially covered
+
+```java
 return (b0 < this.upper && b1 >= b0);
+```
 
-We have found that the branch that we did not cover is when b0>b1.
-To improve on the coverage, we have added a test case where we called the intersect method with the values -6, -9 respectively so that b0 (-6) is greater than b1 (-9).
+We have found that the branch that we did not cover is when `b0 > b1`.
 
-With the addition of this test code, all metrics have coverage of 100%:
+To improve on the coverage, we have added the test case `RangeTest.intersectsWithReverse()` where we called the `intersects` method with the values -6, -9 respectively so that `b0` (-6) is greater than `b1` (-9).
+
+With the addition of this test case, all metrics have coverage of 100%, as again calculated using EclEmma.
 
 | Counter      | Coverage |
 | ------------ | -------- |
@@ -176,9 +180,9 @@ With the addition of this test code, all metrics have coverage of 100%:
 | Methods      | 100.0 %  |
 | Complexity   | 100.0 %  |
 
-#### 2. `Range.expandToInclude(Range range, double value)`
+#### 2. `RangeTest.expandToIncludeWithNullRange()`
 
-Using EclEmma, the coverage for instructions, branches, lines, and methods is:
+Before adding test case `RangeTest.expandToIncludeWithNullRange()`, the coverage calculated using EclEmma was as mentioned in below table.
 
 | Counter      | Coverage |
 | ------------ | -------- |
@@ -188,9 +192,9 @@ Using EclEmma, the coverage for instructions, branches, lines, and methods is:
 | Methods      | 100.0 %  |
 | Complexity   | 75.0 %   |
 
-The minimum of 70% branch coverage was already reached, however 90% line coverage was not.
+The minimum requirement of 70% branch coverage was already met, however 90% line coverage was not met.
 
-When we analyze our code using branch coverage with EclEmma, we found that one the one branch and line not covered is the following:
+When we analyze our test code coverage using EclEmma, we found that one branch was partially covered and as a result one line in that branch was not covered
 
 ```java
 if (range == null) {
@@ -198,14 +202,11 @@ if (range == null) {
 }
 ```
 
-The case not covered was when the input range is null.
-To improve on the coverage, we have added a test case where the expandToInclude method was called as follows:
+We have found that the branch that we did not cover is when range is `null`.
 
-```java
-Range.expandToInclude(null, 10));
-```
+To improve on the coverage, we have added the test case `RangeTest.expandToIncludeWithNullRange()` where we called the `expandToInclude` method with the values `null`, 10 respectively so that `null` range is also tested.
 
-With the addition of this test code, all metrics have coverage of 100%:
+With the addition of this test case, all metrics have coverage of 100%, as again calculated using EclEmma.
 
 | Counter      | Coverage |
 | ------------ | -------- |
@@ -215,7 +216,9 @@ With the addition of this test code, all metrics have coverage of 100%:
 | Methods      | 100.0 %  |
 | Complexity   | 100.0 %  |
 
-#### 3. `Range.combineIgnoringNaN(Range range1, Range range2)`
+#### 3. `RangeTest.combineIgnoringNaNWithFirstRangeNullSecondRangeNaN()`
+
+Before adding test case `RangeTest.combineIgnoringNaNWithFirstRangeNullSecondRangeNaN()`, the coverage calculated using EclEmma was as mentioned in below table.
 
 | Counter      | Coverage |
 | ------------ | -------- |
@@ -225,17 +228,32 @@ With the addition of this test code, all metrics have coverage of 100%:
 | Methods      | 100.0 %  |
 | Complexity   | 25.0 %   |
 
+None of the minimum requirements was met for branch coverage and statement coverage.
+
+When we analyze our test code coverage using EclEmma, we found multiple branches and statements are missing coverage. We found that one of the condition that was missed was when first range is `null` and second range is `NaN`.
+
+```java
+if (range1 == null) {
+  if (range2 != null && range2.isNaNRange()) {
+    return null;
+}
+```
+
+To improve on the coverage, we have added the test case `RangeTest.combineIgnoringNaNWithFirstRangeNullSecondRangeNaN()` where we called the `combineIgnoringNaN` method with the first range `null` and second range with both bounds `Double.NaN`.
+
+With the addition of this test case, we see improvements in all coverage counters like intructions, branches, lines, and complexity, as again calculated using EclEmma.
+
 | Counter      | Coverage |
 | ------------ | -------- |
-| Instructions | 100.0 %  |
-| Branches     | 100.0 %  |
-| Lines        | 100.0 %  |
+| Instructions | 80.4 %   |
+| Branches     | 57.1 %   |
+| Lines        | 76.9 %   |
 | Methods      | 100.0 %  |
-| Complexity   | 100.0 %  |
+| Complexity   | 37.5 %   |
 
-#### 4. `DataUtilities.calculateRowTotal(Values2D, int)`
+#### 4. `DataUtilitiesTest.calculateRowTotalwithNullValue()`
 
-Using EclEmma, the coverage for instructions, branches, lines, and methods is:
+Before adding test case `DataUtilitiesTest.calculateRowTotalwithNullValue()`, the coverage calculated using EclEmma was as mentioned in below table.
 
 | Counter      | Coverage |
 | ------------ | -------- |
@@ -247,11 +265,18 @@ Using EclEmma, the coverage for instructions, branches, lines, and methods is:
 
 Although we have reached the minimum coverage of 70% coverage for branch, we can still find ways to improve this coverage.
 
-When we analyze our code using branch coverage with EclEmma, we found that one of the conditions is not covered in the following line: `if (n !=null)`
+When we analyze our test code coverage using EclEmma, we found that following condition is only partially covered
 
-We have found that the branch that we did not cover is when n==null. To improve on the coverage, we have added a test case where we create a mock object that returns 3 values with one value being null.
+```java
+if (n !=null) {
+  ...
+```
 
-With the addition of this test code, all metrics have coverage of 100%:
+We have found that the branch that we did not cover is when n=`null`.
+
+To improve on the coverage, we have added the test case `DataUtilitiesTest.calculateRowTotalwithNullValue()` where we called the `calculateRowTotal` method by mocking `Values2D` with one value being `null`.
+
+With the addition of this test case, all metrics have coverage of 100%, as again calculated using EclEmma.
 
 | Counter      | Coverage |
 | ------------ | -------- |
@@ -261,9 +286,9 @@ With the addition of this test code, all metrics have coverage of 100%:
 | Methods      | 100.0 %  |
 | Complexity   | 100.0 %  |
 
-#### 5. `DataUtilities.calculateColumnTotal(Values2D, int)`
+#### 5. `DataUtilitiesTest.calculateColumnTotalwithNullValue()`
 
-From the Assignment 2, the calculateColumnTotal method had the following coverage on metrics using the Eclemma coverage tool:
+Before adding test case `DataUtilitiesTest.calculateColumnTotalwithNullValue()`, the coverage calculated using EclEmma was as mentioned in below table.
 
 | Counter      | Coverage |
 | ------------ | -------- |
@@ -273,7 +298,20 @@ From the Assignment 2, the calculateColumnTotal method had the following coverag
 | Methods      | 100.0 %  |
 | Complexity   | 66.7 %   |
 
-On careful observation of the code, it was discovered that one branch of the statement (if n != null) was missed, and that is the condition "n = null". A new test case was written taking this condition into consideration; we created a mock object that returns 3 values with one value being null. After running the test we achieved full coverage on all metrics.
+Although we have reached the minimum coverage of 70% coverage for branch, we can still find ways to improve this coverage.
+
+When we analyze our test code coverage using EclEmma, we found that following condition is only partially covered
+
+```java
+if (n !=null) {
+  ...
+```
+
+We have found that the branch that we did not cover is when n=`null`.
+
+To improve on the coverage, we have added the test case `DataUtilitiesTest.calculateColumnTotalwithNullValue()` where we called the `calculateColumnTotal` method by mocking `Values2D` with one value being `null`.
+
+With the addition of this test case, all metrics have coverage of 100%, as again calculated using EclEmma.
 
 | Counter      | Coverage |
 | ------------ | -------- |
